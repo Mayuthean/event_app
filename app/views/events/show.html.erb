@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+        <h3 style="text-align:center">This event can change your life</h3>
+    </div>
+  </div>
+  <div class="row" style="margin-top:30px">
+    <div class="col-lg-6 col-12" >
+      <img src="<%=@event.images%>" class="img-fluid">
+    </div>
+    <div class="col-lg-6 col-12">
+      <h1><%=@event.title%></h1>
+      <h5><%=format_price(@event)%></h5>
+      <h5><%=@event.event_date%></h5>
+      <p>
+        <%=@event.description%>
+      </p>
+    <label><%=link_to 'Book Now', event_path(@event), class: "btn btn-primary btn-lg btn-block"%></label>
+    </div>
+  </div>

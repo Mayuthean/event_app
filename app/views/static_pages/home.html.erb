@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row" style="margin-top:10px; margin-bottom:20px;">
+    <h1 class="text-center">Chosse Your Event You Like!</h1>
+  </div>
+  <div class="row">
+    <%@events.each do |event|%>
+    <div class="col-lg-3 col-12" style="margin-top:20px;">
+      <div class="card" style="width: 100%;">
+        <img src="<%=event.images%>" class="card-img-top" alt="...">
+        <div class="card-body text-center">
+          <h5><%=truncate(event.title,length: 28)%></h5>
+          <h6><%=format_price(event)%></h6>
+          <h6>Date: <%= event.event_date%></h6>
+          <label><%=link_to 'View More', event_path(event), class: "btn btn-success btn-sm btn-block"%></label>
+          <label><%=link_to 'Book Now', new_event_registration_path(event) , class: "btn btn-primary btn-sm btn-block"%></label>
+        </div>
+      </div>
+    </div>
+    <%end%>
+    </div>

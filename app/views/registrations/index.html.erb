@@ -1,0 +1,11 @@
+<h1><%=@event.title%></h1>
+<ul>
+  <%@registrations.each do |registration|%>
+    <li><%=registration.name%></li>
+    <li><%=registration.gender%></li>
+    <li><%=registration.phone%></li>
+    <li><%=registration.email%></li>
+    <%=link_to "Back to events", events_path%>
+    <%=link_to "Delete", event_registration_path(@event, registration), method: :delete, data: {confirm: "Are you sure"}%>
+  <%end%>
+</ul>

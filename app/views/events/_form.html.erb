@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            <%=form_for @event do |f| %>
+              <div class="row">
+                <div class="col-lg-12">
+                  <%if @event.errors.any?%>
+                    <section>
+                      <header>
+                        <h6>Opps! Your form could not be saved</h6>
+                        <h6>Please try to correct <%=pluralize(@event.errors.count, "error")%></h6>
+                      </header>
+                    </section>
+
+                    <%@event.errors.full_messages.each do |message|%>
+                      <div class="alert alert-danger" role="alert">
+                        <%=message%>
+                      </div>
+                    <%end%>
+                  <%end%>
+                </div>
+                <div class="form-group col-lg-6">
+                  <%=f.label :title  %>
+                  <%=f.text_field :title, class:'form-control'%>
+                </div>
+                <div class="form-group col-lg-6">
+                  <%=f.label :Price%>
+                  <%=f.number_field :price, class: 'form-control'%>
+                </div>
+                <div class="form-group col-lg-6">
+                  <%=f.label :event_date%>
+                  <%=f.date_field :event_date, class: 'form-control'%>
+                </div>
+                <div class="form-group col-lg-6">
+                  <%=f.label :Capacity%>
+                  <%=f.number_field :capacity, class: 'form-control'%>
+                </div>
+                <div class="form-group col-lg-12">
+                  <%=f.label :Description%>
+                  <%=f.text_area :description, class: 'form-control', rows: "10s"%>
+                </div>
+                <div class="form-group col-lg-12">
+                  <%=f.file_field :images%>
+                </div>
+                <div class="form-group col-lg-12">
+                  <%=f.submit class: "btn btn-success"%>
+                  <%=link_to "Cancle", events_path, class: "btn btn-warning"%>
+                </div>
+              </div>
+            <%end%>
+        </div>
+    </div>
+</div>

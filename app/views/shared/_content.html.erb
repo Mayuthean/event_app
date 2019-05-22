@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row" style="margin-top:10px; margin-bottom:20px;">
+    <h1>Admin Panel</h1>
+  </div>
+  <div class="row">
+    <%@events.each do |event|%>
+    <div class="col-lg-4 col-12" style="margin-top:20px;">
+      <div class="card" style="width: 100%;">
+        <img src="<%=event.images%>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h2 class="card-title"><%=event.title%></h2>
+          <h3 style="text-align:center"><%=format_price(event)%></h3>
+          <h4 style="text-align:center"><%= event.event_date%></h4>
+          <%=link_to 'BOOK NOW', event_path(event), class: "btn btn-primary btn-lg btn-block"%>
+        </div>
+      </div>
+    </div>
+    <%end%>
+    </div>

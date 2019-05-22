@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#" style="color:red">Events</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%=link_to "Home", root_path(), class: "nav-link"%>
+      </li>
+    </ul>
+    <span class="navbar-text">
+      <%=link_to "Create Event", new_event_path, class: "nav-link"%>
+    </span
+    <%if user_signed_in?%>
+      <span class="navbar-text">
+        <%=link_to "Log Out", destroy_user_session_path, method: :delete, class: "nav-link"%>
+      </span>
+    <%else%>
+      <span class="navbar-text">
+        <%=link_to "Sign in", user_session_path, class: "nav-link"%>
+      </span>
+      <span class="navbar-text">
+        <%=link_to "Sign up", new_user_registration_path, class: "nav-link"%>
+      </span>
+    <%end%>
+
+  </div>
+</nav>
